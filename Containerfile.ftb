@@ -1,0 +1,13 @@
+ARG BASE_TAG
+FROM itzg/minecraft-server:${BASE_TAG}
+
+ARG MODPACK_ID
+ARG MODPACK_VERSION_ID
+
+ADD --chmod=0755 "https://api.feed-the-beast.com/v1/modpacks/public/modpack/${MODPACK_ID}/${MODPACK_VERSION_ID}/server/linux" /tmp/serverinstall
+
+RUN /tmp/serverinstall -dir /data -pack ${MODPACK_ID} -version ${MODPACK_VERSION_ID} -auto
+
+RUN rm -rf /tmp/serverinstall
+
+VOLUME ["/data/backups", "/data/config", "/data/logs", "/data/world"]

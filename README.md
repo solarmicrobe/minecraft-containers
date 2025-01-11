@@ -1,0 +1,2 @@
+# Description
+This repository contains bits to build your own minecraft containers in a local or private container repository. Distributing these publically would be against the EULA but building containers that "build themselves up" is an antipattern. There exist some great scripts and containers that already do this such as itzg/docker-minecraft](https://github.com/itzg/docker-minecraft-server) that this repository will leverage.
